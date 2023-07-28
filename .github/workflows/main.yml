@@ -1,0 +1,32 @@
+name: Build and Deploy React Site
+
+on:
+  push:
+    branches:
+      - main # Vous pouvez remplacer 'main' par le nom de la branche que vous souhaitez déployer
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # Vous pouvez changer la version de Node.js si nécessaire
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build React app
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # Nom de la branche sur laquelle vous souhaitez déployer le site
+          folder: build  # Chemin vers le dossier de build de votre application React
