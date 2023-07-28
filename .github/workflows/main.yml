@@ -28,5 +28,4 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # Nom de la branche sur laquelle vous souhaitez déployer le site
-          folder: build  # Chemin vers le dossier de build de votre application React
+          folder: build   # Chemin vers le dossier de build de votre application React
